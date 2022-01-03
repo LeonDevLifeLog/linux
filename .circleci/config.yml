@@ -45,7 +45,7 @@ do_steps: &do_steps
        - /home/ubuntu/.ccache
      key: compiler-cache-{{ checksum "~/_cross_compile" }}-{{ .Environment.CACHE_VERSION }}-{{ epoch }}
   - store_artifacts:
-      path: ~/destdir
+      path: /home/ubuntu/project/vmlinux
 ## Customize the test machine
 jobs:
   android-arm32:
