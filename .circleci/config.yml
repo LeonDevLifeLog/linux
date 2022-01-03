@@ -35,7 +35,11 @@ do_steps: &do_steps
   - restore_cache:
       key: compiler-cache-{{ checksum "~/_cross_compile" }}-{{ .Environment.CACHE_VERSION }}
   - run: cd tools/lkl && make -j8 ${MKARG}
+  - run: ls -al
+  - run: ls -al tools/lkl
   - run: mkdir -p ~/destdir && cd tools/lkl && make DESTDIR=~/destdir
+  - run: ls -al
+  - run: ls -al ~/destdir
   - save_cache:
      paths:
        - /home/ubuntu/.ccache
