@@ -50,19 +50,17 @@ do_steps: &do_steps
 jobs:
   android-arm32:
    docker:
-     - image: lkldocker/circleci-android-arm32:0.6
+     - image: lkldocker/circleci-android-arm32:1.1
    environment:
      CROSS_COMPILE: "arm-linux-androideabi-"
-     LKL_ANDROID_TEST: 1
      ANDROID_SDK_ROOT: /home/ubuntu/android-sdk
    <<: *do_steps
 
   android-aarch64:
    docker:
-     - image: lkldocker/circleci-android-arm64:0.6
+     - image: lkldocker/circleci-android-arm64:1.1
    environment:
      CROSS_COMPILE: "aarch64-linux-android-"
-     LKL_ANDROID_TEST: 1
      ANDROID_SDK_ROOT: /home/ubuntu/android-sdk
    <<: *do_steps
 workflows:
